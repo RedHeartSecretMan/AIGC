@@ -3,13 +3,9 @@ version: '3.9'
 x-base_service: &base_service
     ports:
       - "${WEBUI_PORT:-7860}:7860"
-      - "${SSH_PORT:-2222}:22"
     volumes:
       - &v1 ./data:/data
       - &v2 ./output:/output
-    networks: 
-      - sdwebui_network
-    privileged: true
     stop_signal: SIGKILL
     tty: true
     deploy:
@@ -20,13 +16,12 @@ x-base_service: &base_service
                 device_ids: ['0']
                 capabilities: [compute, utility]
 
-name: tigerml
+name: stablediffusion-docker
 
 services:
   download:
     profiles: ["download"]
     build: ./services/download/
-    image: sdwebui/download:latest
     volumes:
       - *v1
 
@@ -34,54 +29,23 @@ services:
     <<: *base_service
     profiles: ["auto"]
     build: ./services/AUTOMATIC1111
-    image: sdwebui/auto:latest
-    container_name: auto
+    image: sd-auto:68
     environment:
-      - http_proxy=172.25.0.1:7890
-      - https_proxy=172.25.0.1:7890
-      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api --share --gradio-auth wanghao:666666
-
-  auto-cpu:
-    <<: *automatic
-    profiles: ["auto-cpu"]
-    deploy: {}
-    environment:
-      - CLI_ARGS=--no-half --precision full --allow-code --enable-insecure-extension-access --api
+      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
 
   invoke: &invoke
     <<: *base_service
     profiles: ["invoke"]
     build: ./services/invoke/
-    image: sdwebui/invoke:latest
-    container_name: invoke
+    image: sd-invoke:30
     environment:
       - PRELOAD=true
       - CLI_ARGS=--xformers
-
-  invoke-cpu:
-    <<: *invoke
-    profiles: ["invoke-cpu"]
-    environment:
-      - PRELOAD=true
-      - CLI_ARGS=--always_use_cpu
 
   comfy: &comfy
     <<: *base_service
     profiles: ["comfy"]
     build: ./services/comfy/
-    image: sdwebui/comfy:latest
-    container_name: comfy
+    image: sd-comfy:5
     environment:
       - CLI_ARGS=
-
-  comfy-cpu:
-    <<: *comfy
-    profiles: ["comfy-cpu"]
-    deploy: {}
-    environment:
-      - CLI_ARGS=--cpu
-
-networks:
-  sdwebui_network:
-    driver: bridge
-    external: false
