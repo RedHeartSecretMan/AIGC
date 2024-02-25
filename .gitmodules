@@ -1,0 +1,3 @@
+[submodule "StableDiffusionDocker"]
+	path = StableDiffusionDocker
+	url = git@github.com:RedHeartSecretMan/StableDiffusionDocker.git
