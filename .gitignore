@@ -53,6 +53,8 @@ resources
 *.bz2
 *.xz
 *.whl
+*.pkl
+*.pickle
 *.db
 
 *.npy
@@ -60,6 +62,7 @@ resources
 *.pb
 *.pt
 *.pth
+*.ckpt
 *.bin
 *.trt
 *.onnx
