@@ -144,3 +144,7 @@ sd-2/lora/shojovibe_v11:
   path: /mnt/w/Code/AIGC/invokeai/autoimport/lora/shojovibe_v11.safetensors
   description: sd-2 lora model shojovibe_v11
   format: lycoris
+sdxl/main/stable-diffusion-xl-1.0-inpainting-0.1:
+  path: sdxl/main/stable-diffusion-xl-1.0-inpainting-0.1
+  variant: inpaint
+  format: diffusers
