@@ -5,9 +5,9 @@ InvokeAI:
     allow_origins: []
     allow_credentials: true
     allow_methods:
-    - '*'
+      - "*"
     allow_headers:
-    - '*'
+      - "*"
     ssl_certfile: null
     ssl_keyfile: null
   Features:
@@ -22,12 +22,12 @@ InvokeAI:
     models_dir: models
     legacy_conf_dir: configs/stable-diffusion
     db_dir: databases
-    outdir: /mnt/w/Code/AIGC/invokeai/outputs
+    outdir: /home/wanghao/code/AIGC/invokeai/outputs
     use_memory_db: false
     custom_nodes_dir: nodes
   Logging:
     log_handlers:
-    - console
+      - console
     log_format: color
     log_level: info
     log_sql: false

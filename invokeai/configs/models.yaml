@@ -130,21 +130,25 @@ sd-1/main/majicmixRealistic_v7_inpainting:
   variant: inpaint
   format: diffusers
 sd-1/lora/add_detail:
-  path: /mnt/w/Code/AIGC/invokeai/autoimport/lora/add_detail.safetensors
+  path: /home/wanghao/code/AIGC/invokeai/autoimport/lora/add_detail.safetensors
   description: sd-1 lora model add_detail
   format: lycoris
 sdxl/lora/add_detail_xl:
-  path: /mnt/w/Code/AIGC/invokeai/autoimport/lora/add_detail_xl.safetensors
+  path: /home/wanghao/code/AIGC/invokeai/autoimport/lora/add_detail_xl.safetensors
   description: sdxl lora model add_detail_xl
   format: lycoris
 sd-1/lora/Ink_scenery:
   path: sd-1/lora/Ink_scenery.safetensors
   format: lycoris
 sd-2/lora/shojovibe_v11:
-  path: /mnt/w/Code/AIGC/invokeai/autoimport/lora/shojovibe_v11.safetensors
+  path: /home/wanghao/code/AIGC/invokeai/autoimport/lora/shojovibe_v11.safetensors
   description: sd-2 lora model shojovibe_v11
   format: lycoris
 sdxl/main/stable-diffusion-xl-1.0-inpainting-0.1:
   path: sdxl/main/stable-diffusion-xl-1.0-inpainting-0.1
   variant: inpaint
+  format: diffusers
+sdxl/main/juggernaut_v9:
+  path: sdxl/main/juggernaut_v9
+  variant: normal
   format: diffusers
