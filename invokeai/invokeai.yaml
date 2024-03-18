@@ -57,4 +57,4 @@ InvokeAI:
     deny_nodes: null
     node_cache_size: 512
   Other:
-    civitai_api_key: null
+    civitai_api_key: 43735bbf43219550d3cff27ddfecfd28
