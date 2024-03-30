@@ -12,20 +12,24 @@
 .clang-format
 .ipynb_checkpoints
 
-*.dSYM
-*.egg-info
-__pycache__
-
+log
+logs
+img
+imgs
 data
 datas
 build
 builds
-log
-logs
+output
+outputs
 result
 results
 resource
 resources
+__pycache__
+
+*.dSYM
+*.egg-info
 
 *.jpg
 *.jpeg
